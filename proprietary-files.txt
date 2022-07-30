@@ -1,48 +1,48 @@
 #
-# Copyright (C) 2019 The LineageOS Project
 #
+#
+#
+# (at your option) any later version.
+# Copyright (C) 2019 The LineageOS Project
+# GNU General Public License for more details.
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# This program is distributed in the hope that it will be useful,
 # This program is free software; you can redistribute it and/or modify
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
 
 # Audio
-vendor/lib/libaudio-ril.so
-vendor/lib/libaudioroute.so
 vendor/lib/libLifevibes_lvverx.so
 vendor/lib/libLifevibes_lvvetx.so
+vendor/lib/libSamsungPostProcessConvertor.so
+vendor/lib/lib_SamsungRec_06006.so
+vendor/lib/lib_SoundAlive_SRC384_ver320.so
+vendor/lib/lib_soundaliveresampler.so
+vendor/lib/libaudio-ril.so
+vendor/lib/libaudioroute.so
 vendor/lib/libpreprocessing_nxp.so
 vendor/lib/librecordalive.so
 vendor/lib/libsamsungDiamondVoice.so
-vendor/lib/libSamsungPostProcessConvertor.so
-vendor/lib/lib_SamsungRec_06006.so
 vendor/lib/libsecaudioinfo.so
-vendor/lib/lib_soundaliveresampler.so
-vendor/lib/lib_SoundAlive_SRC384_ver320.so
 vendor/lib/libtfa98xx.so
 vendor/lib/libtinyalsa.so
 vendor/lib/libvndsecril-client.so
 
 # Bluetooth (aptX)
-product/lib64/libaptX_encoder.so
 product/lib64/libaptXHD_encoder.so
+product/lib64/libaptX_encoder.so
 
 # Camera
-vendor/lib/hw/camera.universal7870.so
 vendor/lib/hw/camera.exynos5.so
-vendor/lib64/hw/camera.universal7870.so
+vendor/lib/hw/camera.universal7870.so
 vendor/lib/libcamera_client.so
 vendor/lib/libgui.so
+vendor/lib64/hw/camera.universal7870.so
 
 # DRM
-vendor/lib/liboemcrypto.so
 vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/liboemcrypto.so
 
 # DRM - Widevine
 vendor/lib/libwvhidl.so
@@ -70,13 +70,13 @@ vendor/bin/hw/android.hardware.graphics.composer@2.2-service
 vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/gralloc.exynos5.so
 vendor/lib/hw/hwcomposer.exynos5.so
+vendor/lib/libExynosHWCService.so
+vendor/lib/libGrallocWrapper.so
 vendor/lib/libexynosdisplay.so
 vendor/lib/libexynosgscaler.so
-vendor/lib/libExynosHWCService.so
 vendor/lib/libexynosscaler.so
 vendor/lib/libexynosutils.so
 vendor/lib/libexynosv4l2.so
-vendor/lib/libGrallocWrapper.so
 vendor/lib/libhdmi.so
 vendor/lib/libhwc2on1adapter.so
 vendor/lib/libhwc2onfbadapter.so
@@ -88,13 +88,13 @@ vendor/lib/libvirtualdisplay.so
 vendor/lib64/hw/gralloc.default.so
 vendor/lib64/hw/gralloc.exynos5.so
 vendor/lib64/hw/hwcomposer.exynos5.so
+vendor/lib64/libExynosHWCService.so
+vendor/lib64/libGrallocWrapper.so
 vendor/lib64/libexynosdisplay.so
 vendor/lib64/libexynosgscaler.so
-vendor/lib64/libExynosHWCService.so
 vendor/lib64/libexynosscaler.so
 vendor/lib64/libexynosutils.so
 vendor/lib64/libexynosv4l2.so
-vendor/lib64/libGrallocWrapper.so
 vendor/lib64/libhdmi.so
 vendor/lib64/libhwc2on1adapter.so
 vendor/lib64/libhwc2onfbadapter.so
@@ -109,13 +109,13 @@ vendor/app/mcRegistry/07010000000000000000000000000000.tlbin
 vendor/app/mcRegistry/07060000000000000000000000000000.tlbin
 vendor/app/mcRegistry/08130000000000000000000000000000.tlbin
 vendor/app/mcRegistry/FFFFFFFF000000000000000000000001.drbin
+vendor/app/mcRegistry/ffffffff000000000000000000000005.tlbin
 vendor/app/mcRegistry/ffffffff00000000000000000000000b.tlbin
 vendor/app/mcRegistry/ffffffff00000000000000000000000c.tlbin
 vendor/app/mcRegistry/ffffffff00000000000000000000000d.tlbin
+vendor/app/mcRegistry/ffffffff000000000000000000000017.tlbin
 vendor/app/mcRegistry/ffffffff00000000000000000000002f.tlbin
 vendor/app/mcRegistry/ffffffff00000000000000000000003e.tlbin:
-vendor/app/mcRegistry/ffffffff000000000000000000000005.tlbin
-vendor/app/mcRegistry/ffffffff000000000000000000000017.tlbin
 vendor/app/mcRegistry/ffffffff000000000000000000000045.tlbin
 vendor/app/mcRegistry/ffffffff000000000000000000000059.tlbin
 vendor/app/mcRegistry/ffffffff000000000000000000000060.tlbin
@@ -144,9 +144,6 @@ vendor/lib64/libsecnativefeature.so
 vendor/lib64/libuniplugin.so
 
 # OMX
-vendor/lib/libExynosOMX_Core.so
-vendor/lib/libExynosOMX_Resourcemanager.so
-vendor/lib/libstagefrighthw.so
 vendor/lib/omx/libOMX.Exynos.AVC.Decoder.so
 vendor/lib/omx/libOMX.Exynos.AVC.Encoder.so
 vendor/lib/omx/libOMX.Exynos.HEVC.Decoder.so
@@ -157,9 +154,9 @@ vendor/lib/omx/libOMX.Exynos.VP8.Decoder.so
 vendor/lib/omx/libOMX.Exynos.VP8.Encoder.so
 vendor/lib/omx/libOMX.Exynos.VP9.Decoder.so
 vendor/lib/omx/libOMX.Exynos.WMV.Decoder.so
-vendor/lib64/libExynosOMX_Core.so
-vendor/lib64/libExynosOMX_Resourcemanager.so
-vendor/lib64/libstagefrighthw.so
+vendor/lib/libExynosOMX_Core.so
+vendor/lib/libExynosOMX_Resourcemanager.so
+vendor/lib/libstagefrighthw.so
 vendor/lib64/omx/libOMX.Exynos.AVC.Decoder.so
 vendor/lib64/omx/libOMX.Exynos.AVC.Encoder.so
 vendor/lib64/omx/libOMX.Exynos.HEVC.Decoder.so
@@ -170,10 +167,13 @@ vendor/lib64/omx/libOMX.Exynos.VP8.Decoder.so
 vendor/lib64/omx/libOMX.Exynos.VP8.Encoder.so
 vendor/lib64/omx/libOMX.Exynos.VP9.Decoder.so
 vendor/lib64/omx/libOMX.Exynos.WMV.Decoder.so
+vendor/lib64/libExynosOMX_Core.so
+vendor/lib64/libExynosOMX_Resourcemanager.so
+vendor/lib64/libstagefrighthw.so
 
 # RIL
-vendor/bin/cbd
 vendor/bin/hw/rild
+vendor/bin/cbd
 vendor/etc/plmn_delta.bin
 vendor/etc/plmn_delta_attaio.bin
 vendor/etc/plmn_delta_hktw.bin
@@ -185,10 +185,10 @@ vendor/lib64/libfloatingfeature.so
 vendor/lib64/libreference-ril.so
 vendor/lib64/libril.so
 vendor/lib64/librilutils.so
-vendor/lib64/libsec-ril.so
 vendor/lib64/libsec-ril-dsds.so
-vendor/lib64/libvndsecril-client.so
+vendor/lib64/libsec-ril.so
 vendor/lib64/libvkmanager_vendor.so
+vendor/lib64/libvndsecril-client.so
 vendor/lib64/vendor.samsung.hardware.radio.bridge@2.0.so
 vendor/lib64/vendor.samsung.hardware.radio.channel@2.0.so
 vendor/lib64/vendor.samsung.hardware.radio@2.0.so
