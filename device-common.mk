@@ -300,7 +300,7 @@ PRODUCT_PACKAGES += \
     libnl
 
 # Properties
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+-include $(LOCAL_PATH)/vendor_prop.mk
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
