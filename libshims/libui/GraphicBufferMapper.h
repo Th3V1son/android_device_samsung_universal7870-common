@@ -30,30 +30,29 @@ namespace android {
 
 class Rect;
 
-class GraphicBufferMapper : public Singleton<GraphicBufferMapper>
-{
+class GraphicBufferMapper : public Singleton<GraphicBufferMapper> {
 public:
-	static inline GraphicBufferMapper& get() { return getInstance(); }
+  static inline GraphicBufferMapper &get() { return getInstance(); }
 
-	status_t importBuffer(buffer_handle_t handle, buffer_handle_t* outHandle);
+  status_t importBuffer(buffer_handle_t handle, buffer_handle_t *outHandle);
 
-	status_t freeBuffer(buffer_handle_t handle);
+  status_t freeBuffer(buffer_handle_t handle);
 
-	status_t lock(buffer_handle_t handle,
-			uint32_t usage, const Rect& bounds, void** vaddr);
+  status_t lock(buffer_handle_t handle, uint32_t usage, const Rect &bounds,
+                void **vaddr);
 
-	status_t lockYCbCr(buffer_handle_t handle,
-			uint32_t usage, const Rect& bounds, android_ycbcr *ycbcr);
+  status_t lockYCbCr(buffer_handle_t handle, uint32_t usage, const Rect &bounds,
+                     android_ycbcr *ycbcr);
 
-	status_t unlock(buffer_handle_t handle);
+  status_t unlock(buffer_handle_t handle);
 
-	void dump(buffer_handle_t handle);
+  void dump(buffer_handle_t handle);
 
 private:
-	friend class Singleton<GraphicBufferMapper>;
-	const gralloc_module_t *mModule;
+  friend class Singleton<GraphicBufferMapper>;
+  const gralloc_module_t *mModule;
 
-	GraphicBufferMapper();
+  GraphicBufferMapper();
 };
 
 }; // namespace android

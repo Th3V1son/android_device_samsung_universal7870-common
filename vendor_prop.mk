@@ -1,17 +1,7 @@
-# Low memory optimization
-# PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.config.low_ram=true
-
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio_hal.force_voice_config=wide
-
-#(OSS audio hal only) use it when faceing call
-# echo with your device to avoid quit mics on other devices
-# TODO: move that thing to device speciffic props
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    audio_hal.disable_two_mic=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -83,7 +73,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=0 \
     ro.vendor.multisim.simslotcount=2
 
-#Treble
+# Treble
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.media.treble_omx=true
 
@@ -91,7 +81,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.cscsupported=1
 
-# sdcardfs
+# SDCardFS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=true
 
@@ -115,4 +105,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.surface_flinger.supports_background_blur=0 \
    persist.sys.sf.disable_blurs=1 \
-	 ro.sf.blurs_are_expensive=1
+   ro.sf.blurs_are_expensive=1

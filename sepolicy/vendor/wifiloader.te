@@ -1,5 +1,4 @@
-#### wifiloader
-#
+# wifiloader
 type wifiloader, domain;
 type wifiloader_exec, exec_type, file_type, vendor_file_type;
 

@@ -1,2 +1,1 @@
 allow gpuservice mediaserver_exec:file { getattr read };
-

@@ -43,7 +43,8 @@ const char CameraParameters::METERING_CENTER[] = "center";
 const char CameraParameters::METERING_MATRIX[] = "matrix";
 const char CameraParameters::METERING_SPOT[] = "spot";
 const char CameraParameters::METERING_OFF[] = "off";
-const char CameraParameters::KEY_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control";
+const char CameraParameters::KEY_DYNAMIC_RANGE_CONTROL[] =
+    "dynamic-range-control";
 const char CameraParameters::KEY_SUPPORTED_PHASE_AF[] = "phase-af-values";
 const char CameraParameters::KEY_PHASE_AF[] = "phase-af";
 const char CameraParameters::KEY_SUPPORTED_RT_HDR[] = "rt-hdr-values";

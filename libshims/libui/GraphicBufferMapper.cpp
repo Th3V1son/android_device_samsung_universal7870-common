@@ -17,8 +17,8 @@
 #define LOG_TAG "GraphicBufferMapper_shim"
 #define LOG_NDEBUG 0
 
-#include <stdint.h>
 #include <errno.h>
+#include <stdint.h>
 
 #include <sync/sync.h>
 
@@ -34,105 +34,101 @@
 
 namespace android {
 
-ANDROID_SINGLETON_STATIC_INSTANCE( GraphicBufferMapper )
+ANDROID_SINGLETON_STATIC_INSTANCE(GraphicBufferMapper)
 
-GraphicBufferMapper::GraphicBufferMapper()
-	: mModule(nullptr)
-{
-	const hw_module_t* module;
-	int err = hw_get_module(GRALLOC_HARDWARE_MODULE_ID, &module);
+GraphicBufferMapper::GraphicBufferMapper() : mModule(nullptr) {
+  const hw_module_t *module;
+  int err = hw_get_module(GRALLOC_HARDWARE_MODULE_ID, &module);
 
-	ALOGE_IF(err, "cannot find gralloc-module %s", GRALLOC_HARDWARE_MODULE_ID);
-	if (err == 0) {
-		mModule = reinterpret_cast<gralloc_module_t const *>(module);
-	}
+  ALOGE_IF(err, "cannot find gralloc-module %s", GRALLOC_HARDWARE_MODULE_ID);
+  if (err == 0) {
+    mModule = reinterpret_cast<gralloc_module_t const *>(module);
+  }
 }
 
-status_t GraphicBufferMapper::importBuffer(buffer_handle_t handle, buffer_handle_t* outHandle)
-{
-	ATRACE_CALL();
-	status_t err;
+status_t GraphicBufferMapper::importBuffer(buffer_handle_t handle,
+                                           buffer_handle_t *outHandle) {
+  ATRACE_CALL();
+  status_t err;
 
-	if (mModule->registerBuffer == NULL) {
-		ALOGW("registerBuffer(%p) not found", handle);
-		return -EINVAL;
-	}
+  if (mModule->registerBuffer == NULL) {
+    ALOGW("registerBuffer(%p) not found", handle);
+    return -EINVAL;
+  }
 
-	err = mModule->registerBuffer(mModule, handle);
-	*outHandle = handle;
+  err = mModule->registerBuffer(mModule, handle);
+  *outHandle = handle;
 
-	ALOGW_IF(err, "registerBuffer(%p) failed: %d (%s)", handle, -err, strerror(-err));
-	return err;
+  ALOGW_IF(err, "registerBuffer(%p) failed: %d (%s)", handle, -err,
+           strerror(-err));
+  return err;
 }
 
-status_t GraphicBufferMapper::freeBuffer(buffer_handle_t handle)
-{
-	ATRACE_CALL();
-	status_t err;
+status_t GraphicBufferMapper::freeBuffer(buffer_handle_t handle) {
+  ATRACE_CALL();
+  status_t err;
 
-	if (mModule->unregisterBuffer == NULL) {
-		ALOGW("unregisterBuffer(%p) not found", handle);
-		return -EINVAL;
-	}
+  if (mModule->unregisterBuffer == NULL) {
+    ALOGW("unregisterBuffer(%p) not found", handle);
+    return -EINVAL;
+  }
 
-	err = mModule->unregisterBuffer(mModule, handle);
+  err = mModule->unregisterBuffer(mModule, handle);
 
-	ALOGW_IF(err, "unregisterBuffer(%p) failed: %d (%s)", handle, -err, strerror(-err));
-	return err;
+  ALOGW_IF(err, "unregisterBuffer(%p) failed: %d (%s)", handle, -err,
+           strerror(-err));
+  return err;
 }
 
-status_t GraphicBufferMapper::lock(buffer_handle_t handle,
-		uint32_t usage, const Rect& bounds, void** vaddr)
-{
-	ATRACE_CALL();
-	status_t err;
+status_t GraphicBufferMapper::lock(buffer_handle_t handle, uint32_t usage,
+                                   const Rect &bounds, void **vaddr) {
+  ATRACE_CALL();
+  status_t err;
 
-	if (mModule->lock == NULL) {
-		ALOGW("lock(%p) not found", handle);
-		return -EINVAL;
-	}
+  if (mModule->lock == NULL) {
+    ALOGW("lock(%p) not found", handle);
+    return -EINVAL;
+  }
 
-	err = mModule->lock(mModule, handle, static_cast<int>(usage),
-			bounds.left, bounds.top, bounds.width(), bounds.height(),
-			vaddr);
+  err = mModule->lock(mModule, handle, static_cast<int>(usage), bounds.left,
+                      bounds.top, bounds.width(), bounds.height(), vaddr);
 
-	ALOGW_IF(err, "lock(%p) failed: %d (%s)", handle, -err, strerror(-err));
-	return err;
+  ALOGW_IF(err, "lock(%p) failed: %d (%s)", handle, -err, strerror(-err));
+  return err;
 }
 
-status_t GraphicBufferMapper::lockYCbCr(buffer_handle_t handle,
-		uint32_t usage, const Rect& bounds, android_ycbcr *ycbcr)
-{
-	ATRACE_CALL();
-	status_t err;
+status_t GraphicBufferMapper::lockYCbCr(buffer_handle_t handle, uint32_t usage,
+                                        const Rect &bounds,
+                                        android_ycbcr *ycbcr) {
+  ATRACE_CALL();
+  status_t err;
 
-	if (mModule->lock_ycbcr == NULL) {
-		ALOGW("lock_ycbcr(%p) not found", handle);
-		return -EINVAL;
-	}
+  if (mModule->lock_ycbcr == NULL) {
+    ALOGW("lock_ycbcr(%p) not found", handle);
+    return -EINVAL;
+  }
 
-	err = mModule->lock_ycbcr(mModule, handle, static_cast<int>(usage),
-			bounds.left, bounds.top, bounds.width(), bounds.height(),
-			ycbcr);
+  err =
+      mModule->lock_ycbcr(mModule, handle, static_cast<int>(usage), bounds.left,
+                          bounds.top, bounds.width(), bounds.height(), ycbcr);
 
-	ALOGW_IF(err, "lock_ycbcr(%p) failed: %d (%s)", handle, -err, strerror(-err));
-	return err;
+  ALOGW_IF(err, "lock_ycbcr(%p) failed: %d (%s)", handle, -err, strerror(-err));
+  return err;
 }
 
-status_t GraphicBufferMapper::unlock(buffer_handle_t handle)
-{
-	ATRACE_CALL();
-	status_t err;
+status_t GraphicBufferMapper::unlock(buffer_handle_t handle) {
+  ATRACE_CALL();
+  status_t err;
 
-	if (mModule->unlock == NULL) {
-		ALOGW("unlock(%p) not found", handle);
-		return -EINVAL;
-	}
+  if (mModule->unlock == NULL) {
+    ALOGW("unlock(%p) not found", handle);
+    return -EINVAL;
+  }
 
-	err = mModule->unlock(mModule, handle);
+  err = mModule->unlock(mModule, handle);
 
-	ALOGW_IF(err, "unlock(%p) failed: %d (%s)", handle, -err, strerror(-err));
-	return err;
+  ALOGW_IF(err, "unlock(%p) failed: %d (%s)", handle, -err, strerror(-err));
+  return err;
 }
 
 }; // namespace android

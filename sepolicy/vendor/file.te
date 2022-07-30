@@ -1,4 +1,4 @@
-### efs types
+# efs types
 type app_efs_file, file_type;
 type battery_efs_file, file_type;
 type baro_delta_factoryapp_efs_file, file_type;
@@ -16,7 +16,7 @@ type sensor_efs_file, file_type;
 type sensor_factoryapp_efs_file, file_type;
 type wifi_efs_file, file_type;
 
-# gps
+# GPS
 type gps_data_file, file_type, data_file_type, core_data_file_type;
 type gps_socket, file_type;
 
@@ -28,7 +28,7 @@ type proc_simslot_count, fs_type, proc_type;
 type proc_input_devices, fs_type, proc_type;
 type proc_sec, fs_type, proc_type;
 
-### sysfs types
+# sysfs types
 #type sysfs_writable, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_mdnie, fs_type, sysfs_type, mlstrustedobject;
 type sysfs_mipi, fs_type, sysfs_type, mlstrustedobject;
@@ -48,7 +48,7 @@ type sysfs_jack, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_v4l, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_sswap, sysfs_type, fs_type, mlstrustedobject;
 
-### data types
+# data types
 type biometrics_vendor_data_file, file_type, data_file_type;
 type camera_vendor_data_file, file_type, data_file_type;
 type conn_vendor_data_file, file_type, data_file_type;

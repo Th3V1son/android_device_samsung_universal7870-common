@@ -18,11 +18,11 @@
 #include "voice.h"
 
 enum es_power_state {
-    ES_POWER_FW_LOAD,
-    ES_POWER_SLEEP,
-    ES_POWER_SLEEP_PENDING,
-    ES_POWER_AWAKE,
-    ES_MAX = ES_POWER_AWAKE
+  ES_POWER_FW_LOAD,
+  ES_POWER_SLEEP,
+  ES_POWER_SLEEP_PENDING,
+  ES_POWER_AWAKE,
+  ES_MAX = ES_POWER_AWAKE
 };
 
 int es_start_voice_session(struct voice_session *session);

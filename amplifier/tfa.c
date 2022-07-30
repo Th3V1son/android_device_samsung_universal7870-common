@@ -137,7 +137,8 @@ static int tfa_clock_off(tfa_device_t *tfa_dev)
  * @param tfa_dev Device handle.
  *
  * @return 0 on success, <0 on error.
- */
+*/
+
 static int load_tfa_lib(tfa_device_t *tfa_dev) {
     if (access(TFA_LIBRARY_PATH, R_OK) < 0) {
         ALOGE("%s: amplifier library %s not found", __func__, TFA_LIBRARY_PATH);
@@ -176,7 +177,8 @@ static int load_tfa_lib(tfa_device_t *tfa_dev) {
  * @param on true or false for enabling/disabling of the IC.
  *
  * @return 0 on success, != 0 on error.
- */
+*/
+
 int tfa_power(tfa_device_t *tfa_dev, bool on) {
     int rc = 0;
 
@@ -211,6 +213,7 @@ int tfa_power(tfa_device_t *tfa_dev, bool on) {
  *
  * @return tfa_device_t on success, NULL on error.
  */
+
 tfa_device_t * tfa_device_open() {
     tfa_device_t *tfa_dev;
     int rc;
@@ -273,7 +276,8 @@ tfa_device_t * tfa_device_open() {
 
 /*
  * De-Initializes the amplifier device.
- */
+*/
+
 void tfa_device_close(tfa_device_t *tfa_dev) {
     ALOGV("%s: Closing amplifier device", __func__);
     tfa_power(tfa_dev, false);
@@ -292,4 +296,3 @@ void tfa_device_close(tfa_device_t *tfa_dev) {
         free(tfa_dev);
     }
 }
-

@@ -12,4 +12,3 @@ allow cameraserver camera_data_file:file r_file_perms;
 r_dir_file(cameraserver, media_rw_data_file);
 
 allow cameraserver mediaserver_exec:file { getattr read };
-

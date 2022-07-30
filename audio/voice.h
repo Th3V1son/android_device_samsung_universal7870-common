@@ -20,20 +20,20 @@
 #include "ril_interface.h"
 
 struct voice_session {
-    struct ril_handle ril;
+  struct ril_handle ril;
 
-    struct pcm *pcm_voice_rx;
-    struct pcm *pcm_voice_tx;
+  struct pcm *pcm_voice_rx;
+  struct pcm *pcm_voice_tx;
 
-    int wb_amr_type;
-    bool two_mic_control;
-    bool two_mic_disabled;
+  int wb_amr_type;
+  bool two_mic_control;
+  bool two_mic_disabled;
 
-    /* from uc_info */
-    audio_devices_t out_device;
+  /* from uc_info */
+  audio_devices_t out_device;
 
-    /* parent container */
-    struct voice_data *vdata;
+  /* parent container */
+  struct voice_data *vdata;
 };
 
 void prepare_voice_session(struct voice_session *session,

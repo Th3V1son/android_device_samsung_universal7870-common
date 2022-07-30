@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 #ifndef ANDROID_RIL_MSIM_H
 #define ANDROID_RIL_MSIM_H 1
 
@@ -34,11 +33,12 @@ typedef enum {
 } RIL_SubscriptionType;
 
 typedef struct {
-  int   slot;                        /* 0, 1, ... etc. */
-  int   app_index;                   /* array subscriptor from applications[RIL_CARD_MAX_APPS] in
-                                        RIL_REQUEST_GET_SIM_STATUS */
-  RIL_SubscriptionType  sub_type;    /* Indicates subscription 1 or subscription 2 */
-  RIL_UiccSubActStatus  act_status;
+  int slot;      /* 0, 1, ... etc. */
+  int app_index; /* array subscriptor from applications[RIL_CARD_MAX_APPS] in
+                    RIL_REQUEST_GET_SIM_STATUS */
+  RIL_SubscriptionType
+      sub_type; /* Indicates subscription 1 or subscription 2 */
+  RIL_UiccSubActStatus act_status;
 } RIL_SelectUiccSub;
 
 #ifdef __cplusplus

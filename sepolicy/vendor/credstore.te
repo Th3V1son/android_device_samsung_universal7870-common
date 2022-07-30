@@ -1,2 +1,1 @@
 allow credstore mediaserver_exec:file { getattr read };
-

@@ -1,2 +1,1 @@
 allow wificond mediaserver_exec:file { getattr read };
-

@@ -28,16 +28,18 @@ int parse_compress_metadata(struct stream_out *out, struct str_parms *parms);
 
 int stop_output_offload_stream(struct stream_out *out, bool *disable);
 
-int out_set_offload_parameters(struct audio_device *adev, struct audio_usecase *uc_info);
+int out_set_offload_parameters(struct audio_device *adev,
+                               struct audio_usecase *uc_info);
 
 ssize_t out_write_offload(struct audio_stream_out *stream, const void *buffer,
-                         size_t bytes);
+                          size_t bytes);
 
 int out_get_render_offload_position(struct stream_out *out,
-                                   uint32_t *dsp_frames);
+                                    uint32_t *dsp_frames);
 
-int out_get_presentation_offload_position(struct stream_out *out, uint64_t *frames,
-                                   struct timespec *timestamp);
+int out_get_presentation_offload_position(struct stream_out *out,
+                                          uint64_t *frames,
+                                          struct timespec *timestamp);
 
 int out_pause_offload(struct stream_out *out);
 

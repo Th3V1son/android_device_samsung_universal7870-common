@@ -1,2 +1,1 @@
 allow drmserver mediaserver_exec:file { getattr read };
-

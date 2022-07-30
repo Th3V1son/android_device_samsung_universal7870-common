@@ -13,7 +13,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+*/
 
 #define LOG_TAG "audio_hw_amplifier"
 #define LOG_NDEBUG 0
@@ -54,7 +54,8 @@ static amp_device_t *amp_dev = NULL;
  * @param snd_device The current sound device.
  *
  * @return tfa_mode_t identifying the internal amplifier mode.
- */
+*/
+
 static tfa_mode_t classify_snd_device(uint32_t snd_device) {
     tfa_mode_t mode = Audio_Mode_None;
 
@@ -77,7 +78,8 @@ static tfa_mode_t classify_snd_device(uint32_t snd_device) {
 
 /*
  * Hook into amplifier HAL
- */
+*/
+
 static int amp_enable_output_devices(amplifier_device_t *device,
         uint32_t devices, bool enable)
 {
@@ -209,4 +211,3 @@ amplifier_module_t HAL_MODULE_INFO_SYM = {
         .methods = &hal_module_methods,
     },
 };
-

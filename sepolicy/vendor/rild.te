@@ -3,11 +3,11 @@
 allow rild block_device:dir search;
 allow rild mnt_vendor_file:dir { getattr search };
 
-# audio hal
+# Audio HAL
 allow rild hal_audio_default:dir search;
 allow rild hal_audio_default:file r_file_perms;
 
-# gps
+# GPS
 allow rild gpsd:dir search;
 allow rild gpsd:file r_file_perms;
 
@@ -70,4 +70,3 @@ allow rild mif_device:chr_file ioctl;
 allow rild emmcblk_device:blk_file { open read };
 allow rild mif_device:chr_file { getattr open read write };
 allow rild vendor_default_prop:property_service set;
-

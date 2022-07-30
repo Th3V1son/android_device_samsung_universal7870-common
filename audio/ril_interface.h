@@ -30,24 +30,20 @@
  */
 typedef void (*ril_wb_amr_callback)(void *data, int wb_amr_type);
 
-struct ril_handle
-{
-    void *client;
-    int volume_steps_max;
+struct ril_handle {
+  void *client;
+  int volume_steps_max;
 };
-
 
 /* Function prototypes */
 int ril_open(struct ril_handle *ril);
 
 int ril_close(struct ril_handle *ril);
 
-int ril_set_call_volume(struct ril_handle *ril,
-                        enum _SoundType sound_type,
+int ril_set_call_volume(struct ril_handle *ril, enum _SoundType sound_type,
                         float volume);
 
-int ril_set_call_audio_path(struct ril_handle *ril,
-                            enum _AudioPath path);
+int ril_set_call_audio_path(struct ril_handle *ril, enum _AudioPath path);
 
 int ril_set_call_clock_sync(struct ril_handle *ril,
                             enum _SoundClockCondition condition);
@@ -58,8 +54,7 @@ int ril_set_two_mic_control(struct ril_handle *ril,
                             enum __TwoMicSolDevice device,
                             enum __TwoMicSolReport report);
 
-int ril_set_wb_amr_callback(struct ril_handle *ril,
-                            ril_wb_amr_callback fn,
+int ril_set_wb_amr_callback(struct ril_handle *ril, ril_wb_amr_callback fn,
                             void *data);
 
 #endif

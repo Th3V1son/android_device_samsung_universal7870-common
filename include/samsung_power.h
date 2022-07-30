@@ -19,14 +19,11 @@
 #define SAMSUNG_POWER_H
 
 static const std::vector<std::string> cpuSysfsPaths = {
-    "/sys/devices/system/cpu/cpu0",
-    "/sys/devices/system/cpu/cpu4"
-};
+    "/sys/devices/system/cpu/cpu0", "/sys/devices/system/cpu/cpu4"};
 
 static const std::vector<std::string> cpuInteractivePaths = {
     "/sys/devices/system/cpu/cpu0/cpufreq/interactive",
-    "/sys/devices/system/cpu/cpu4/cpufreq/interactive"
-};
+    "/sys/devices/system/cpu/cpu4/cpufreq/interactive"};
 
 /* double tap to wake node */
 #define TAP_TO_WAKE_NODE "/sys/class/sec/tsp/dt2w_enable"
